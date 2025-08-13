@@ -1,0 +1,63 @@
+HELP.md
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Eclipse
+.metadata/
+*.log
+*.tmp
+*.bak
+
+# Maven / Gradle
+target/
+*.class
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Backend ###
+/target
+*.class
+*.log
+*.jar
+*.war
+*.iml
+*.db
+*.env
+application.properties
+
+### Frontend ###
+/kanban-frontend/node_modules/
+/kanban-frontend/.env
+/kanban-frontend/.next/
+/kanban-frontend/dist/
+
+### Sistema ###
+.DS_Store
+Thumbs.db
