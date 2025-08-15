@@ -21,4 +21,9 @@ public class ColunaService {
 	public Coluna buscarPorId(int id) {
 		return colunaRepository.findById(id).orElseThrow( () -> new RuntimeException("Quadro não encontrado com o id: " + id));
 	}
+
+	public Coluna novaColuna(Coluna coluna) {
+		colunaRepository.save(coluna);
+		return coluna;
+	}
 }

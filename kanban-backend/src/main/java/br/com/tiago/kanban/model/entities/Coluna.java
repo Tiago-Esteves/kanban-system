@@ -4,26 +4,25 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "colunas")
 public class Coluna {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@NotBlank
     @Column(nullable = false)
 	private String nome;
 	
 	@OneToMany(mappedBy = "coluna")
-	List<Tarefa> tarefa;
+	List<Tarefa> tarefas;
 	
 	@ManyToOne
 	@JoinColumn(name = "quadro_id")
@@ -32,11 +31,15 @@ public class Coluna {
 	public Coluna() {
 		
 	}
+	
+	public Coluna(String nome) {
+		this.nome = nome;
+	}	
 
-	public Coluna(String nome, List<Tarefa> tarefa) {
+	public Coluna(String nome, List<Tarefa> tarefas) {
 		super();
 		this.nome = nome;
-		this.tarefa = tarefa;
+		this.tarefas = tarefas;
 	}
 
 
@@ -57,11 +60,11 @@ public class Coluna {
 	}
 
 	public List<Tarefa> getTarefa() {
-		return tarefa;
+		return tarefas;
 	}
 
 	public void setTarefa(List<Tarefa> tarefa) {
-		this.tarefa = tarefa;
+		this.tarefas = tarefa;
 	}
 	
 	

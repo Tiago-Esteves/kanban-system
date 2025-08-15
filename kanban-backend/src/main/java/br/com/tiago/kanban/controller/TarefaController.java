@@ -20,7 +20,7 @@ import br.com.tiago.kanban.service.ColunaService;
 import br.com.tiago.kanban.service.TarefaService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/tarefas")
 public class TarefaController {
 
 	@Autowired
