@@ -5,8 +5,6 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -17,19 +15,21 @@ public class Coluna {
 
 	@Id
 	private int id;
+	
 	@NotBlank
     @Column(nullable = false)
 	private String nome;
 	
 	@OneToMany(mappedBy = "coluna")
 	List<Tarefa> tarefas;
-	
-	@ManyToOne
-	@JoinColumn(name = "quadro_id")
-	private Quadro quadro;
-	
+		
 	public Coluna() {
 		
+	}
+	
+	public Coluna(int id, String nome) {
+		this.id = id;
+		this.nome = nome;
 	}
 	
 	public Coluna(String nome) {

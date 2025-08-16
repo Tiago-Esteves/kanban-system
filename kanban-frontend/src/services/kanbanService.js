@@ -8,20 +8,20 @@ export const getTarefas = async () => {
 }
 
 export const criarTarefa = async (tarefa) => {
-    const response = await Axios.post(`${API_URL}/tarefas`, tarefa);
+    const response = await Axios.post(`${API_URL}/api/tarefas`, tarefa);
     return response.data;
 }
 
 export const atualizarTarefa = async (id, tarefaAtualizada) => {
-    const response = await Axios.post(`${API_URL}/tarefas/${id}`, tarefaAtualizada);
+    const response = await Axios.post(`${API_URL}/api/tarefas${id}`, tarefaAtualizada);
     return response.data;
 }
 
 export const deletarTarefa = async (id) => {
-    const response = await Axios.post(`${API_URL}/tarefas/${id}`);
+    const response = await Axios.post(`${API_URL}/api/tarefas${id}`);
     return response.data;
 }
 
 export const moverTarefa = async (dto) => {
-    await Axios.patch(`${API_URL}/tarefas`, dto);
+    await Axios.patch(`${API_URL}/api/tarefas`, dto);
 }

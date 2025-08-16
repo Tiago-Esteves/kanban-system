@@ -12,7 +12,7 @@ import br.com.tiago.kanban.model.entities.Coluna;
 import br.com.tiago.kanban.service.ColunaService;
 
 @RestController
-@RequestMapping("/api/quadro")
+@RequestMapping("/api/colunas")
 public class ColunaController {
 
 	@Autowired

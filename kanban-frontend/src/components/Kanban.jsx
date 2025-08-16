@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import * as kanbanService from "../services/kanbanService";
+import { useNavigate } from "react-router-dom";
 
 
 function Kanban(){
 
     const colunas = ["A começar", "Fazendo", "Concluído", "Atrasado"];
     const [tarefas, setTarefas] = useState([]);
+    const navigate = useNavigate();
 
     const colunaMap = {
         1: "A começar",
@@ -29,12 +31,18 @@ function Kanban(){
 
     useEffect(() => {
         carregarTarefas();
-    }, []);
+    }, );
 
     return(
          <div>
-            <h1 className="text-5xl font-bold text-center mb-6">Kanban Board</h1>     
+            <div className="flex justify-between items-center mb-6">
+                <button
+                        onClick={() => navigate(`/quadros`)}
+                        className="botoes"
+                >← Meus quadros</button>
+                <h1 className="text-5xl font-bold text-center flex-1">Kanban Board</h1>     
 
+            </div>
             <div className="flex gap-5 p-10">
                 {colunas.map((nomeColuna) => (
                     <section
@@ -65,9 +73,12 @@ function Kanban(){
                                 {tarefa.descricao}
                             </div>
                         ))}
-                    </section>
+                    </section>                   
                 ))}
+
+                
             </div>
+            
         </div>
     );
 }

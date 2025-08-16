@@ -20,10 +20,10 @@ public class ColunaDataLoader implements CommandLineRunner {
 	
 	public void run(String... argss) throws Exception{
 		if (colunaRepository.count() == 0) {
-			colunaRepository.save(new Coluna("A começar"));
-			colunaRepository.save(new Coluna("Fazendo"));
-			colunaRepository.save(new Coluna("Concluído"));
-			colunaRepository.save(new Coluna("Atrasado"));
+			colunaRepository.save(new Coluna(1, "A começar"));
+			colunaRepository.save(new Coluna(2, "Em andamento"));
+			colunaRepository.save(new Coluna(3, "Concluído"));
+			colunaRepository.save(new Coluna(4, "Atrasado"));
 		}
 			
 	}

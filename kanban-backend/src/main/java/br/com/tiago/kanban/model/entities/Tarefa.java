@@ -21,12 +21,18 @@ public class Tarefa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@NotBlank
     @Column(nullable = false)
 	private String descricao;
+	
 	@CreationTimestamp
 	private LocalDateTime dataCriacao;
 	private LocalDateTime prazo;
+	
+	@ManyToOne
+	@JoinColumn(name = "quadro_id")
+	private Quadro quadro;
 	
 	@ManyToOne
 	@JoinColumn(name = "coluna_id")
@@ -34,6 +40,15 @@ public class Tarefa {
 	
 	public Tarefa() {
 		
+	}
+	
+	public Tarefa(String descricao, LocalDateTime dataCriacao, LocalDateTime prazo, Quadro quadro, Coluna coluna) {
+		super();
+		this.descricao = descricao;
+		this.quadro = quadro;
+		this.coluna = coluna;
+		this.dataCriacao = dataCriacao;
+		this.prazo = prazo;
 	}
 
 	public Tarefa(String descricao, LocalDateTime dataCriacao, LocalDateTime prazo) {
@@ -73,6 +88,14 @@ public class Tarefa {
 
 	public void setPrazo(LocalDateTime prazo) {
 		this.prazo = prazo;
+	}
+	
+	public Quadro getQuadro() {
+		return quadro;
+	}
+
+	public void setQuadro(Quadro quadro) {
+		this.quadro = quadro;
 	}
 
 	public Coluna getColuna() {

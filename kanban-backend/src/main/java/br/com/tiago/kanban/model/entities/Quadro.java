@@ -21,15 +21,17 @@ public class Quadro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@NotBlank
     @Column(nullable = false)
 	private String nome;
 	private boolean status;
+	
 	@CreationTimestamp
 	private LocalDateTime dataCriacao;
 	
 	@OneToMany(mappedBy = "quadro")
-	private List<Coluna> colunas;
+	private List<Tarefa> tarefas;
 	
 	public Quadro() {
 

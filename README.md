@@ -1,32 +1,53 @@
-# Kanban System - Java Spring Boot
+# Kanban System - Java Spring Boot + React  
+🚀 **Acesse a aplicação online**  
+🔗 *Link da demo:* Em breve  
+*(a aplicação será hospedada assim que finalizada e o frontend for integrado ao backend)*  
 
-## 🚀 Acesse a aplicação online
-
-🔗 **Link da demo**: *Em breve*  
-*(a aplicação será hospedada assim que finalizada)*
+Este projeto é um sistema de gerenciamento de tarefas estilo Kanban, com **backend em Java Spring Boot** e **frontend em React**. Ele simula um quadro de tarefas com colunas como **"A começar"**, **"Em andamento"**, **"Finalizado"** e **"Atrasado"**.  
 
 ---
 
-Este projeto é um sistema de gerenciamento de tarefas estilo Kanban, desenvolvido com **Java**, **Spring Boot**, **JPA**, e **MySQL**. Ele simula um quadro de tarefas com colunas como "A Fazer", "Fazendo" e "Concluído".
+## ✨ Funcionalidades  
+### Backend  
+📌 Cadastro, edição e exclusão de tarefas  
+📊 Organização por status: *A começar*, *Em andamento*, *Finalizado*, *Atrasado*  
+🔄 API RESTful para integração com frontend  
+💾 Persistência de dados com JPA + MySQL  
 
-## ✨ Funcionalidades
+### Frontend (em desenvolvimento)  
+🎨 Layout Kanban responsivo com colunas e cartões de tarefas  
+📂 Listagem de tarefas separadas por status  
+📌 Organização visual das tarefas usando **React** e **Tailwind CSS**  
 
-- 📌 Cadastro, edição e exclusão de tarefas
-- 📊 Organização por status: A Fazer, Fazendo, Concluído
-- 🔄 API RESTful para integração com frontend
-- 💾 Persistência de dados com JPA + MySQL
+---
 
-## 🧰 Tecnologias utilizadas
+## 🧰 Tecnologias utilizadas  
+**Backend:**  
+- Java 17  
+- Spring Boot  
+- Spring Data JPA  
+- MySQL  
+- Maven  
+- Eclipse IDE  
 
-- Java 17
-- Spring Boot
-- Spring Data JPA
-- MySQL
-- Maven
-- Eclipse IDE
+**Frontend:**  
+- React  
+- Tailwind CSS  
+- Vite (para desenvolvimento rápido)  
+- Node.js / npm  
 
-## ⚙️ Como executar localmente
+---
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/Tiago-Esteves/kanban-system-java.git
+## ⚙️ Como executar localmente  
+
+### Backend  
+```bash
+# Clonar o repositório
+git clone https://github.com/Tiago-Esteves/kanban-system.git
+cd kanban-system
+
+# Instalar dependências
+mvn install
+
+# Rodar o projeto
+mvn spring-boot:run
