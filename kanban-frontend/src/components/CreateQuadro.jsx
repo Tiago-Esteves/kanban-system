@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import * as quadroService from "../services/quadroService";
+import "./CreateQuadro.css"
+import "../Index.css"
 
 export default function CreateQuadro() {
   const [nome, setNome] = useState("");
@@ -13,57 +16,44 @@ export default function CreateQuadro() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/quadros", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome })
-      });
+      const novoQuadro = await quadroService.createQuadro({ nome });
+      navigate(`/kanban/${novoQuadro.id}`);
 
-      if (!response.ok) throw new Error("Erro ao criar quadro");
 
-      const novoQuadro = await response.json();
-
-      // Redireciona para a página do quadro
-      navigate(`/quadros/${novoQuadro.id}`);
     } catch (error) {
       alert("Erro: " + error.message);
+
     } finally {
       setLoading(false);
     }
   };
 
+
   return (
-    <div style={{ maxWidth: "400px", margin: "auto", padding: "20px" }}>
-      <h2>Criar novo quadro</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nome do quadro"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          style={{
-            width: "100%",
-            padding: "8px",
-            marginBottom: "10px",
-            borderRadius: "4px",
-            border: "1px solid #ccc"
-          }}
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          style={{
-            width: "100%",
-            padding: "8px",
-            background: "#4CAF50",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px"
-          }}
-        >
-          {loading ? "Criando..." : "Criar Quadro"}
-        </button>
-      </form>
+    <div className="div">
+      <button
+        onClick={() => navigate(`/Quadros`)}
+        className="botoes"
+      >Voltar</button>
+      <div className="container">
+        <h2 className="text-4xl font-bold mb-2">Nome do Quadro</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            className="input"
+            type="text"
+            placeholder="Kanban board"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}            
+          />
+          <button
+            className="botao"
+            type="submit"
+            disabled={loading}           
+          >
+            {loading ? "Criando..." : "Criar Quadro"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

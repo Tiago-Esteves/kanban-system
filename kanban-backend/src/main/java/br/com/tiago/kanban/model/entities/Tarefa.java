@@ -31,11 +31,12 @@ public class Tarefa {
 	private LocalDateTime prazo;
 	
 	@ManyToOne
-	@JoinColumn(name = "quadro_id")
+	@JoinColumn(name = "quadroId")
+	
 	private Quadro quadro;
 	
 	@ManyToOne
-	@JoinColumn(name = "coluna_id")
+	@JoinColumn(name = "colunaId")
 	private Coluna coluna;
 	
 	public Tarefa() {

@@ -29,12 +29,18 @@ public class TarefaService {
 	}
 	
 	public Tarefa atualizar(int id, Tarefa novaTarefa) {
-		Tarefa tarefaAtual = buscarPorId(id);
-		tarefaAtual.setDescricao(novaTarefa.getDescricao());
-		tarefaAtual.setPrazo(novaTarefa.getPrazo());
-		
-		return tarefaRepository.save(tarefaAtual);
+	    Tarefa tarefaAtual = buscarPorId(id);
+	    tarefaAtual.setDescricao(novaTarefa.getDescricao());
+	    tarefaAtual.setPrazo(novaTarefa.getPrazo());
+	    
+	    // Atualiza a coluna, se fornecida
+	    if (novaTarefa.getColuna() != null) {
+	        tarefaAtual.setColuna(novaTarefa.getColuna());
+	    }
+
+	    return tarefaRepository.save(tarefaAtual);
 	}
+
 	
 	public void deletarPorId(int id) {		
 		tarefaRepository.deleteById(id);

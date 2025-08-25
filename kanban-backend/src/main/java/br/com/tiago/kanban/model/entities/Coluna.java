@@ -5,7 +5,6 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
@@ -20,8 +19,9 @@ public class Coluna {
     @Column(nullable = false)
 	private String nome;
 	
-	@OneToMany(mappedBy = "coluna")
-	List<Tarefa> tarefas;
+	/*
+	 * @OneToMany(mappedBy = "coluna") List<Tarefa> tarefas;
+	 */
 		
 	public Coluna() {
 		
@@ -39,7 +39,7 @@ public class Coluna {
 	public Coluna(String nome, List<Tarefa> tarefas) {
 		super();
 		this.nome = nome;
-		this.tarefas = tarefas;
+		//this.tarefas = tarefas;
 	}
 
 
@@ -59,13 +59,11 @@ public class Coluna {
 		this.nome = nome;
 	}
 
-	public List<Tarefa> getTarefa() {
-		return tarefas;
-	}
-
-	public void setTarefa(List<Tarefa> tarefa) {
-		this.tarefas = tarefa;
-	}
+	/*
+	 * public List<Tarefa> getTarefa() { return tarefas; }
+	 * 
+	 * public void setTarefa(List<Tarefa> tarefa) { this.tarefas = tarefa; }
+	 */
 	
 	
 }

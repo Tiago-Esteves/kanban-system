@@ -1,0 +1,90 @@
+.kanban{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0D1117;
+    color: whitesmoke;
+}
+
+.titulo{
+    flex: 1;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.kanbanHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.spacer{
+    width: 200px;
+    margin-left: 65px;
+    
+}
+
+.botaoMeusQuadros{
+    cursor: pointer;
+    background-color: #58A6FF;
+    color: whitesmoke;
+    width: 200px;
+    padding: 8px;
+    margin-left: 40px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.botaoMeusQuadros:hover{
+    transition: background-color 0.5s ease;
+    background-color: #395b83;
+}
+
+.colunas{
+    display: flex;
+    gap: 20px;
+    padding: 5px;
+}
+
+.kanbanContainer{
+    width: 500;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+}
+
+.colunasSection{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #161B22;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 600px;
+    max-height: 70vh;
+    /*box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+}
+
+.tarefas {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #21262D;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.botaoEditarTarefa{
+    fill: white;
+    
+}
+
+.input-data::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+
