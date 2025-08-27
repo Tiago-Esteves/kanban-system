@@ -1,0 +1,65 @@
+.tarefas {
+    display: flex;    
+    justify-content: space-between;
+    cursor: grab;
+    align-items: center;
+    background-color: #21262D;
+    max-height: 60px;    
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    overflow: hidden;
+    color: white;
+}
+
+.tarefas.expandida{    
+    max-height: 600px;
+    
+}
+
+.tarefas .descricao {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.tarefas .ladoDireito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.botoesFormulario{
+    cursor: pointer;  
+    background-color: #58A6FF;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.botoesFormulario:hover{
+    background-color: #395b83;
+    transition: background-color 0.5s ease;
+}
+
+.botoesFormularioSection{   
+    display: inline-flex;
+    gap: 4px;   
+    border-radius: 6px;
+    margin-top: auto;
+    margin-left: auto;
+    
+}
+
+.formularioEditar{
+    z-index: 10;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+   
+}

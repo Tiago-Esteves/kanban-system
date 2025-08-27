@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getQuadros } from "../services/quadroService";
+import { getQuadros } from "../../services/quadroService";
 import { useNavigate } from "react-router-dom"
 
 export default function Quadros(){
@@ -33,7 +33,7 @@ export default function Quadros(){
                 </ul>
                 
                 <button
-                    onClick={() => navigate(`/create-quadros`)}
+                    onClick={() => navigate(`/CreateQuadro`)}
                     className="mt-2 w-full bg-[#58A6FF] text-white py-2 rounded hover:bg-[#395b83] transiton duration-500 cursor-pointer"
                 >Novo Quadro</button>
             </div>

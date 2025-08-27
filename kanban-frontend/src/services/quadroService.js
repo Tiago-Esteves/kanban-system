@@ -11,3 +11,8 @@ export async function createQuadro(quadro) {
     const res = await axios.post(`${API_URL}/quadros`, quadro);
     return res.data
 }
+
+export async function getQuadroById(id) {
+    const res = await axios.get(`${API_URL}/quadros/${id}`, id);
+    return res.data
+}

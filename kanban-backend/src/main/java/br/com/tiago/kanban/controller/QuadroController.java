@@ -34,8 +34,7 @@ public class QuadroController {
 	}
 	
 	@GetMapping("/{id}")
-	public Quadro buscarPorId(@PathVariable int id) {
-		
+	public Quadro buscarPorId(@PathVariable int id) {	
 		return quadroService.buscarPorId(id);
 	}
 	

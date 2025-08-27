@@ -33,7 +33,7 @@ public class TarefaService {
 	    tarefaAtual.setDescricao(novaTarefa.getDescricao());
 	    tarefaAtual.setPrazo(novaTarefa.getPrazo());
 	    
-	    // Atualiza a coluna, se fornecida
+	    // Atualiza a coluna, se fornecida (para a função de mover)
 	    if (novaTarefa.getColuna() != null) {
 	        tarefaAtual.setColuna(novaTarefa.getColuna());
 	    }

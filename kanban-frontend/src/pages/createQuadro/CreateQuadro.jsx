@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as quadroService from "../services/quadroService";
+import * as quadroService from "../../services/quadroService";
 import "./CreateQuadro.css"
-import "../Index.css"
+import "../../Index.css"
 
 export default function CreateQuadro() {
   const [nome, setNome] = useState("");
@@ -42,7 +42,7 @@ export default function CreateQuadro() {
             className="input"
             type="text"
             placeholder="Kanban board"
-            value={nome}
+            value={nome} required
             onChange={(e) => setNome(e.target.value)}            
           />
           <button
