@@ -1,7 +1,7 @@
 import React from "react";
 import IconEditar from '../../assets/pencil-square.svg?react';
 
-function KanbanHeader({ quadro, navigate }) {
+function KanbanHeader({ quadro, navigate, handleDeletarQuadro }) {
   return (
     <div className="kanbanHeader">
       <button onClick={() => navigate(`/quadros`)} className="botaoMeusQuadros">
@@ -9,9 +9,10 @@ function KanbanHeader({ quadro, navigate }) {
       </button>
       <h1 className="titulo">{quadro?.nome}</h1>
       <div className="botaoEditarQuadros">
-        Editar Quadro
-        <IconEditar className="ml-1 mt-1 text-white" />
-        
+        <button onClick={() => handleDeletarQuadro(quadro.id)}>
+          <IconEditar className="ml-1 mt-1 text-white" /> Deletar Quadro
+          </button>
+                
       </div>
     </div>
   );

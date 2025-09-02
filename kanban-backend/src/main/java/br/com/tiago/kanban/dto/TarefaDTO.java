@@ -5,10 +5,10 @@ import java.time.LocalDateTime;
 import br.com.tiago.kanban.model.entities.Tarefa;
 
 public class TarefaDTO {
-    private int id;
+    private Long id;
     private String descricao;
     private LocalDateTime prazo;
-    private int quadroId;
+    private Long quadroId;
     private int colunaId;
     private String colunaNome; 
     
@@ -21,11 +21,11 @@ public class TarefaDTO {
         this.colunaNome = tarefa.getColuna().getNome();
     }
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -45,11 +45,11 @@ public class TarefaDTO {
 		this.prazo = prazo;
 	}
 
-	public int getQuadroId() {
+	public Long getQuadroId() {
 		return quadroId;
 	}
 
-	public void setQuadroId(int quadroId) {
+	public void setQuadroId(Long quadroId) {
 		this.quadroId = quadroId;
 	}
 

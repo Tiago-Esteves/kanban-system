@@ -1,18 +1,24 @@
-import axios from "axios";
+
+import api from "./authService";
 
 const API_URL = "http://localhost:8080/api";
 
 export async function getQuadros() {
-    const res = await axios.get(`${API_URL}/quadros`);
+    const res = await api.get(`${API_URL}/quadros`); // trocando de axios para api devido a rota protegida
     return res.data;
 }
 
 export async function createQuadro(quadro) {
-    const res = await axios.post(`${API_URL}/quadros`, quadro);
+    const res = await api.post(`${API_URL}/quadros`, quadro);
     return res.data
 }
 
 export async function getQuadroById(id) {
-    const res = await axios.get(`${API_URL}/quadros/${id}`, id);
+    const res = await api.get(`${API_URL}/quadros/${id}`, id);
     return res.data
+}
+
+export async function deleteQuadroById(id) {
+    const res = await api.delete(`${API_URL}/quadros/${id}`, id);
+    return res.data;
 }

@@ -9,8 +9,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "quadros")
@@ -18,7 +21,7 @@ public class Quadro {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@NotBlank
     @Column(nullable = false)
@@ -28,17 +31,27 @@ public class Quadro {
 	@CreationTimestamp
 	private LocalDateTime dataCriacao;
 	
-	/*
-	 * @OneToMany(mappedBy = "quadro")
-	 * 
-	 * @JsonIgnore private List<Tarefa> tarefas;
-	 */
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 	
 	public Quadro() {
 
 	}
-
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
+
 	public LocalDateTime getDataCriacao() {
 		return dataCriacao;
 	}
@@ -49,11 +62,11 @@ public class Quadro {
 	}
 
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

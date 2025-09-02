@@ -1,18 +1,55 @@
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import App from './App.jsx'
-import CreateQuadro from './pages/createQuadro/CreateQuadro.jsx'
-import Kanban from './pages/kanbanPage/Kanban.jsx'
-import Quadros from './pages/quadrosPage/Quadros.jsx'
-import './index.css'
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import App from './App.jsx';
+import CreateQuadro from './pages/createQuadro/CreateQuadro.jsx';
+import Kanban from './pages/kanbanPage/Kanban.jsx';
+import Quadros from './pages/quadrosPage/Quadros.jsx';
+import './index.css';
+import LoginPage from './pages/loginPage/LoginPage.jsx';
+import Register from './pages/register/Register.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx'; // importando a rota privada
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}  />
-      <Route path="/createquadro" element={<CreateQuadro />} />
-      <Route path="/quadros" element={<Quadros />} />
-      <Route path="/kanban/:id" element={<Kanban />} />
+      <Route path="/auth/login" element={<LoginPage />} />
+      <Route path='/auth/register' element={<Register />} />
+
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <App />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/createquadro"
+        element={
+          <PrivateRoute>
+            <CreateQuadro />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/quadros"
+        element={
+          <PrivateRoute>
+            <Quadros />
+          </PrivateRoute>
+        }
+      />
+
+      <Route
+        path="/kanban/:id"
+        element={
+          <PrivateRoute>
+            <Kanban />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   </BrowserRouter>
-)
+);

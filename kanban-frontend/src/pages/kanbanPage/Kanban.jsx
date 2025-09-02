@@ -11,9 +11,9 @@ import FormAdicionarTarefa from "../../components/tarefas/FormAdicionarTarefa";
 import "./kanban.css";
 
 function Kanban() {
-  const [colunas, setColunas] = useState([]);
-  const [tarefas, setTarefas] = useState([]);
-  const [descricao, setDescricao] = useState("");
+  const [colunas, setColunas] = useState([]); //colunas = variável | setColunas = responsável por atualizar o valor e mandar para o react | useState "usa o estado atual e retorna um array" | ([]) -> estado inicial vazio
+  const [tarefas, setTarefas] = useState([]); // [tarefas, setTarefas] -> atribuição via desestruturação
+  const [descricao, setDescricao] = useState(""); // ("") -> estado inicial String vazia
   const [prazo, setPrazo] = useState("");
   const [colunaSelecionada, setColunaSelecionada] = useState("");
   const { id } = useParams();
@@ -22,10 +22,13 @@ function Kanban() {
   const navigate = useNavigate();
   const [tarefaEditando, setTarefaEditando] = useState(null);
 
+
+
   useEffect(() => {
     async function carregarQuadro() {
       try {
         const data = await quadroService.getQuadroById(id);
+        
         setQuadro(data);
       } catch (err) {
         console.log("Erro ao carregar quadro", err);
@@ -45,7 +48,7 @@ function Kanban() {
       }
     }
     carregarColunas();
-  }, []);
+  }, []); // roda apenas uma vez
 
   useEffect(() => {
     async function carregarTarefas() {
@@ -58,7 +61,7 @@ function Kanban() {
       }
     }
     carregarTarefas();
-  }, [quadroId]);
+  }, [quadroId]); // roda sempre que o quadroId atualizar
 
   async function handleAdicionarTarefa(e) {
     e.preventDefault();
@@ -103,6 +106,16 @@ function Kanban() {
     }
   }
 
+  async function handleDeletarQuadro(id) {
+    if (confirm("AVISO! Você está deletando o quadro e esta ação não é reversível! Deseja continuar?")) {
+      try {
+        await quadroService.deleteQuadroById(id);
+
+      } catch (error) {
+        console.log("Erro ao deletar quadro: ", error)
+      }
+    }
+  }
   function onDragStart(e, tarefaId) {
     e.dataTransfer.setData("text/plain", String(tarefaId));
     e.dataTransfer.effectAllowed = "move";
@@ -136,7 +149,11 @@ function Kanban() {
 
   return (
     <div className="kanban">
-      <KanbanHeader quadro={quadro} navigate={navigate} />
+      <KanbanHeader
+        quadro={quadro}
+        navigate={navigate}
+        handleDeletarQuadro={handleDeletarQuadro}
+      />
 
       <div className="flex gap-5 p-10">
         {colunas.map((coluna) => {

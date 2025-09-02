@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.tiago.kanban.model.entities.Quadro;
+import br.com.tiago.kanban.model.entities.Usuario;
 import br.com.tiago.kanban.model.repositories.QuadroRepository;
 import jakarta.validation.Valid;
 
@@ -23,8 +24,14 @@ public class QuadroService {
 		return quadroRepository.findAll();
 	}
 	
+	public List<Quadro> getQuadrosDoUsuario(Usuario usuario) {
+	    return quadroRepository.findByUsuarioId(usuario.getId());
+	}
+	
 	public Quadro buscarPorId(int id) { 
+		//System.out.println("Teste");
 		return quadroRepository.findById(id).orElseThrow( () -> new RuntimeException("Quadro não encontrado com o id: " + id));
+		
 	}
 	
 	public Quadro atualizar(int id, @Valid Quadro novoQuadro) { //Peguei do gpt. analisar BD

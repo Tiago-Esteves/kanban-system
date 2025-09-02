@@ -1,4 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* títulos mais marcantes */
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', sans-serif;
+}
+
+p, input, button, span, a {
+    font-family: 'Poppins', sans-serif;
+}
 
 .esquemaTeste{
     background-color: #0D1117;

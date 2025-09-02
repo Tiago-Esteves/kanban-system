@@ -20,7 +20,7 @@ public class Tarefa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@NotBlank
     @Column(nullable = false)
@@ -31,8 +31,7 @@ public class Tarefa {
 	private LocalDateTime prazo;
 	
 	@ManyToOne
-	@JoinColumn(name = "quadroId")
-	
+	@JoinColumn(name = "quadroId")	
 	private Quadro quadro;
 	
 	@ManyToOne
@@ -59,11 +58,11 @@ public class Tarefa {
 		this.prazo = prazo;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

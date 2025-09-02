@@ -1,0 +1,62 @@
+.div{
+    color: white;
+    background-color: #0D1117;
+    display: inline-flexbox;
+    place-content: center;
+    justify-items: center;
+    
+}
+
+.containerForm{
+    background-color: #1a2d49;
+    width: 400px;
+    height: 647px; 
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 40px;
+    border-radius: 10px;
+    
+}
+
+.containerFields{
+    background-color: #566d92;
+    border-radius: 5px;
+    padding-left: 8px;
+}
+
+.botao{
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    background-color: #58A6FF;
+    color: whitesmoke;
+    border: none;
+    border-radius: 8px;
+    
+}
+
+.botao:hover{
+    transition: background-color 0.5s ease;
+    background-color: #395b83;
+}
+
+.cadastroLink{
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+.cadastroLink:hover{
+    
+    color: rgb(187, 132, 132);
+}
+
+.divCadastro{
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    border-top: 1px solid #616975;
+    padding-top: 4px;
+}
