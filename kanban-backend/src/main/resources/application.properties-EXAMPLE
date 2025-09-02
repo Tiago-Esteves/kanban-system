@@ -4,3 +4,7 @@ spring.datasource.password=SENHA-EXAMPLE
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+jwt.secret=SECRET-EXAMPLE
+jwt.expiration=TIME-EXAMPLE
+jwt.refreshExpiration=TIME-EXAMPLE
