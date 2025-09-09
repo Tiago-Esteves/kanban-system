@@ -52,7 +52,7 @@ export const login = async (usuario) => {
 }
 
 export const logout = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
 
 }
 

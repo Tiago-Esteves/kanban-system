@@ -51,6 +51,7 @@ build/
 *.db
 *.env
 application.properties
+application-dev.properties
 
 ### Frontend ###
 /kanban-frontend/node_modules/

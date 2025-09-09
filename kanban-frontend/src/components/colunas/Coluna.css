@@ -3,6 +3,7 @@
     display: flex;
     gap: 5px;
     padding: 10px;
+    
 }
 
 .colunasSection{
@@ -12,8 +13,8 @@
     background-color: #161B22;
     padding: 10px;
     border-radius: 8px;
-    min-height: 600px;
-    max-height: 70vh;
+    min-height: 500px;
+    aspect-ratio: 1 / 1.618;
     /*box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
     overflow-y: auto;
     color: white;

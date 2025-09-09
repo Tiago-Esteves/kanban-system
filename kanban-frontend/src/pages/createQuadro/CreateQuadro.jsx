@@ -33,7 +33,7 @@ export default function CreateQuadro() {
     <div className="div">
       <button
         onClick={() => navigate(`/Quadros`)}
-        className="botoes"
+        className="voltar"
       >Voltar</button>
       <div className="container">
         <h2 className="text-4xl font-bold mb-2">Nome do Quadro</h2>

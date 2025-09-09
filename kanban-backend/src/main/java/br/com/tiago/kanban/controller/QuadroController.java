@@ -55,6 +55,7 @@ public class QuadroController {
 		if(quadro.getUsuario().getId() != usuario.getId()) {
 			throw new RuntimeException("Você não tem permissão para atualizar este quadro!");
 		}
+		
 	    return quadroService.atualizar(id, quadroAtualizado);
 	}
 

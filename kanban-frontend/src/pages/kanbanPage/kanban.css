@@ -20,7 +20,7 @@
 
 .botaoMeusQuadros{
     cursor: pointer;
-    background-color: #58A6FF;
+    /*background-color: #58A6FF;*/
     color: whitesmoke;
     width: 200px;
     padding: 8px;
@@ -36,9 +36,25 @@
     background-color: #395b83;
 }
 
-.botaoEditarQuadros{
+.BotaoEditarQuadros{
     cursor: pointer;
-    background-color: #58A6FF;
+    /*background-color: #58A6FF;*/
+    color: whitesmoke;
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    width: 200px;
+    padding: 8px;
+    margin-right: 40px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.BotaoEditarQuadros.editando{
+    
+    cursor: pointer;
+    /*background-color: #58A6FF;*/
     text-align: center;
     display: flex;
     justify-content: center;
@@ -53,10 +69,12 @@
     border-radius: 4px;
 }
 
-.botaoEditarQuadros:hover{
+.BotaoEditarQuadros:hover{
     transition: background-color 0.5s ease;
     background-color: #395b83;
 }
+
+
 
 .colunas{
     display: flex;
@@ -110,4 +128,12 @@
   filter: invert(1);
 }
 
-
+.formularioEditarQuadro{
+    z-index: 10;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-right: 40px;
+    margin-top: 15px;
+}

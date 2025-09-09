@@ -1,5 +1,6 @@
 .div{
     
+    position: relative;
     height: 100vh;
     padding: 20px;
     background-color: #0D1117;
@@ -9,7 +10,8 @@
 .container{
     position: relative;
     max-width: 500px;
-    margin: 40px auto;
+    margin: -150px auto;
+    
 }
 
 .input{
@@ -21,10 +23,10 @@
 }
 
 .botao{
+    
     cursor: pointer;
     width: 100%;
     padding: 8px;
-    background-color: #58A6FF;
     color: whitesmoke;
     border: none;
     border-radius: 8px;
@@ -34,4 +36,22 @@
 .botao:hover{
     transition: background-color 0.5s ease;
     background-color: #395b83;
+}
+
+.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    
+    color: whitesmoke;
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.voltar:hover {
+    background: #395b83;
+    transition: background-color 0.5s ease;
 }

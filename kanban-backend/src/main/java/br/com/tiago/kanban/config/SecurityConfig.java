@@ -2,8 +2,10 @@ package br.com.tiago.kanban.config;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -31,6 +33,9 @@ public class SecurityConfig {
 	private final JwtAuthenticationFilter jwtAuthFilter;
 	private final UserDetailsService userDetailsService;
 	
+	@Autowired
+	private Environment env;
+
 	
 	public SecurityConfig(JwtAuthenticationFilter jwtAuthFilter, UserDetailsService userDetailsService) {
 		this.jwtAuthFilter = jwtAuthFilter;
@@ -58,20 +63,40 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationEntryPoint jwtAuthEntry, JwtAccessDeniedHandler JwtAccess) throws Exception{
-		http.csrf(csrf -> csrf.disable())
-			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-			.authorizeHttpRequests(auth -> auth
-					.requestMatchers("/api/auth/**").permitAll()
-					.requestMatchers("/api/quadros/**", "/api/colunas", "/api/tarefas/**").authenticated()
-					.anyRequest().authenticated()
-			)
-			.exceptionHandling(ex -> ex.accessDeniedHandler(JwtAccess))
-			.exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthEntry))
-			.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-		http.cors(Customizer.withDefaults());
-		
-		return http.build();
+	public SecurityFilterChain securityFilterChain(HttpSecurity http,
+	        JwtAuthenticationEntryPoint jwtAuthEntry,
+	        JwtAccessDeniedHandler jwtAccess) throws Exception {
+
+	    http.csrf(csrf -> csrf.disable())
+	        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+	        .authorizeHttpRequests(auth -> {
+	            // APIs públicas
+	            auth.requestMatchers("/api/auth/**").permitAll();
+
+	            // Swagger liberado somente no dev
+	            if ("dev".equals(env.getProperty("spring.profiles.active"))) {
+	                auth.requestMatchers(
+	                        "/v3/api-docs/**",
+	                        "/swagger-ui/**",
+	                        "/swagger-ui.html",
+	                        "/swagger-ui/index.html",
+	                        "/swagger-resources/**",
+	                        "/webjars/**"
+	                ).permitAll();
+	            }
+
+	            // Outras APIs precisam de autenticação
+	            auth.requestMatchers("/api/quadros/**", "/api/colunas/**", "/api/tarefas/**")
+	                .authenticated()
+	                .anyRequest().authenticated();
+	        })
+	        .exceptionHandling(ex -> ex.accessDeniedHandler(jwtAccess)
+	                                    .authenticationEntryPoint(jwtAuthEntry))
+	        .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+	    http.cors(Customizer.withDefaults());
+
+	    return http.build();
 	}
 	
 	@Bean

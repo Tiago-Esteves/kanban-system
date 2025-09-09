@@ -17,6 +17,7 @@ function LoginPage() {
             const data = await authService.login({ email: username, password })
             setUsuario(data)
             localStorage.setItem("token", data.token);
+            localStorage.setItem("tipoToken", data.tipoToken);
             navigate("/quadros");
         } catch (error) {
             console.error("Erro no login: ", error);

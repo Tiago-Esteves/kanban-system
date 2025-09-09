@@ -29,8 +29,7 @@
 .botao{
     cursor: pointer;
     width: 100%;
-    padding: 8px;
-    background-color: #58A6FF;
+    padding: 8px;    
     color: whitesmoke;
     border: none;
     border-radius: 8px;
@@ -45,6 +44,7 @@
 .cadastroLink{
     cursor: pointer;
     text-decoration: underline;
+    background-color: unset;
     margin-left: 4px;
 }
 

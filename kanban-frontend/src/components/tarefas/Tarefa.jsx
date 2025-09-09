@@ -31,7 +31,8 @@ function Tarefa({ tarefa, tarefaEditando, setTarefaEditando, handleSalvarEdicao,
           <section className="botoesFormularioSection">
             <button className="botoesFormulario" type="submit">Salvar</button>
             <button className="botoesFormulario" onClick={() => setTarefaEditando(null)}>Voltar</button>
-            <button className="cursor-pointer hover:bg-red-800 rounded" title="Deletar Tarefa" onClick={() => handleApagarTarefa(tarefa.id)}>Deletar</button>
+            
+            <button className="pl-0.5 pr-0.5 cursor-pointer transition-colors duration-500 hover:bg-red-700 rounded" title="Deletar Tarefa" onClick={() => handleApagarTarefa(tarefa.id)}>Deletar</button>
           </section>
         </form>
       ) : (
@@ -40,7 +41,7 @@ function Tarefa({ tarefa, tarefaEditando, setTarefaEditando, handleSalvarEdicao,
           <span className="ladoDireito min-w-[70px] inline-block text-right" title={tarefa.prazo ? format(new Date(tarefa.prazo), "dd/MM/yyyy HH:mm") : ""}>
             {tarefa.prazo ? format(new Date(tarefa.prazo), "dd/MM/yy", { locale: ptBR }) : ""}
           </span>
-          <button className="ladoDireito p-2 rounded hover:bg-gray-700" onClick={() => setTarefaEditando(tarefa)}>
+          <button className="ladoDireito p-2 rounded hover:bg-gray-700 cursor-pointer" onClick={() => setTarefaEditando(tarefa)}>
             <IconEditar />
           </button>
         </>

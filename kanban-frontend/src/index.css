@@ -5,6 +5,10 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+button{
+    background-color: #6643c0;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 700; /* títulos mais marcantes */
@@ -26,7 +30,7 @@ p, input, button, span, a {
 
 .botoes {
     cursor: pointer;
-    background-color: #58A6FF;
+    
     color: whitesmoke;
     width: 200px;
     padding: 8px;

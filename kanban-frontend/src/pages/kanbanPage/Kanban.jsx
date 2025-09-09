@@ -11,24 +11,22 @@ import FormAdicionarTarefa from "../../components/tarefas/FormAdicionarTarefa";
 import "./kanban.css";
 
 function Kanban() {
-  const [colunas, setColunas] = useState([]); //colunas = variável | setColunas = responsável por atualizar o valor e mandar para o react | useState "usa o estado atual e retorna um array" | ([]) -> estado inicial vazio
-  const [tarefas, setTarefas] = useState([]); // [tarefas, setTarefas] -> atribuição via desestruturação
-  const [descricao, setDescricao] = useState(""); // ("") -> estado inicial String vazia
+  const [colunas, setColunas] = useState([]);
+  const [tarefas, setTarefas] = useState([]);
+  const [descricao, setDescricao] = useState("");
   const [prazo, setPrazo] = useState("");
   const [colunaSelecionada, setColunaSelecionada] = useState("");
   const { id } = useParams();
   const quadroId = parseInt(id);
   const [quadro, setQuadro] = useState(null);
-  const navigate = useNavigate();
+  const [quadroEditando, setQuadroEditando] = useState(null);
   const [tarefaEditando, setTarefaEditando] = useState(null);
-
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function carregarQuadro() {
       try {
         const data = await quadroService.getQuadroById(id);
-        
         setQuadro(data);
       } catch (err) {
         console.log("Erro ao carregar quadro", err);
@@ -48,20 +46,22 @@ function Kanban() {
       }
     }
     carregarColunas();
-  }, []); // roda apenas uma vez
+  }, []);
 
   useEffect(() => {
     async function carregarTarefas() {
       try {
         const dados = await tarefaService.getTarefas();
         const tarefasDoQuadro = dados.filter((t) => t.quadro?.id === quadroId);
-        setTarefas(tarefasDoQuadro);
+        setTarefas(tarefasDoQuadro.sort(
+          (a, b) => new Date(a.dataCriacao) - new Date(b.dataCriacao)
+        ));
       } catch (erro) {
         console.error("Erro ao carregar tarefas:", erro);
       }
     }
     carregarTarefas();
-  }, [quadroId]); // roda sempre que o quadroId atualizar
+  }, [quadroId]);
 
   async function handleAdicionarTarefa(e) {
     e.preventDefault();
@@ -87,10 +87,25 @@ function Kanban() {
     e.preventDefault();
     try {
       await tarefaService.atualizarTarefa(tarefaEditando.id, tarefaEditando);
-      setTarefas((prev) => prev.map((t) => t.id === tarefaEditando.id ? tarefaEditando : t));
+      setTarefas((prev) =>
+        prev.map((t) => (t.id === tarefaEditando.id ? tarefaEditando : t))
+      );
       setTarefaEditando(null);
     } catch (err) {
       console.log("Erro ao atualizar tarefa!", err);
+    }
+  }
+
+  async function handleSalvarEdicaoQuadro(e) {
+    e.preventDefault();
+    try {
+      await quadroService.updateQuadroById(quadroEditando.id, quadroEditando);
+      setQuadro((prev) =>
+        prev.id === quadroEditando.id ? quadroEditando : prev
+      );
+      setQuadroEditando(null);
+    } catch (err) {
+      console.log("Erro ao atualizar quadro!", err);
     }
   }
 
@@ -110,12 +125,13 @@ function Kanban() {
     if (confirm("AVISO! Você está deletando o quadro e esta ação não é reversível! Deseja continuar?")) {
       try {
         await quadroService.deleteQuadroById(id);
-
+        navigate("/quadros");
       } catch (error) {
         console.log("Erro ao deletar quadro: ", error)
       }
     }
   }
+
   function onDragStart(e, tarefaId) {
     e.dataTransfer.setData("text/plain", String(tarefaId));
     e.dataTransfer.effectAllowed = "move";
@@ -134,7 +150,6 @@ function Kanban() {
         ...tarefa,
         coluna: { id: colunaDestino.id },
       });
-
       setTarefas((prev) =>
         prev.map((t) => (t.id === tarefaId ? { ...t, coluna: colunaDestino } : t))
       );
@@ -153,6 +168,9 @@ function Kanban() {
         quadro={quadro}
         navigate={navigate}
         handleDeletarQuadro={handleDeletarQuadro}
+        quadroEditando={quadroEditando}
+        setQuadroEditando={setQuadroEditando}
+        handleSalvarEdicaoQuadro={handleSalvarEdicaoQuadro}
       />
 
       <div className="flex gap-5 p-10">

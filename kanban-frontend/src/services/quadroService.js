@@ -18,6 +18,11 @@ export async function getQuadroById(id) {
     return res.data
 }
 
+export async function updateQuadroById(id, quadro) {
+    const res = await api.put(`${API_URL}/quadros/${id}`, quadro);
+    return res.data;
+}
+
 export async function deleteQuadroById(id) {
     const res = await api.delete(`${API_URL}/quadros/${id}`, id);
     return res.data;

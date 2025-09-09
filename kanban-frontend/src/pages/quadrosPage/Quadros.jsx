@@ -37,7 +37,7 @@ export default function Quadros() {
 
                 <button
                     onClick={() => navigate(`/CreateQuadro`)}
-                    className="mt-2 w-full bg-[#58A6FF] text-white py-2 rounded hover:bg-[#395b83] transiton duration-500 cursor-pointer"
+                    className="botao mt-2"
                 >Novo Quadro</button>
 
                 <button 

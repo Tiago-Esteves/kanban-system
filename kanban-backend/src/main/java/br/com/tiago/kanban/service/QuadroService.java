@@ -34,7 +34,7 @@ public class QuadroService {
 		
 	}
 	
-	public Quadro atualizar(int id, @Valid Quadro novoQuadro) { //Peguei do gpt. analisar BD
+	public Quadro atualizar(int id, @Valid Quadro novoQuadro) { 
 		Quadro quadroAtual = buscarPorId(id);
 		quadroAtual.setNome(novoQuadro.getNome());
 		quadroAtual.setStatus(novoQuadro.isStatus());
