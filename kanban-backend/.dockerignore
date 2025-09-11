@@ -1,0 +1,9 @@
+# Ignora arquivos de configuração de desenvolvimento
+application-dev.properties
+.env
+
+# Ignora pastas desnecessárias
+target/
+.idea/
+.vscode/
+*.log
