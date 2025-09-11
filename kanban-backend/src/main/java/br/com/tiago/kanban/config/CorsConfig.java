@@ -17,7 +17,7 @@ public class CorsConfig {
 				registry.addMapping("/**")
 					.allowedHeaders("*")
 					.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
-					.allowedOrigins("http://localhost:5173/"); // removi a /
+					.allowedOrigins("http://localhost:5173/", "https://kanban-system-tau.vercel.app"); // removi a /
 			}
 		};
 	}
