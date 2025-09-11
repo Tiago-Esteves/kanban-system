@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as quadroService from "../../services/quadroService";
 import "./CreateQuadro.css"
-import "../../Index.css"
+import "../../index.css"
 
 export default function CreateQuadro() {
   const [nome, setNome] = useState("");
