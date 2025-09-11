@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import * as tarefaService from "../../services/tarefaService";
-import * as colunaService from "../../services/colunaService";
-import * as quadroService from "../../services/quadroService";
+import * as tarefaService from "../../services/tarefaService.js";
+import * as colunaService from "../../services/colunaService.js";
+import * as quadroService from "../../services/quadroService.js";
 
 import KanbanHeader from "../../components/kanbanHeader/KanbanHeader";
 import Coluna from "../../components/colunas/Coluna";
