@@ -33,6 +33,7 @@ function Register(){
             <form onSubmit={handleRegister}
                 className="containerForm"
             >
+                <h1 className="text-center font-bold text-[50px]">Bem vindo!</h1>
                 <h1 className="text-center font-bold text-[30px]"> Cadastro</h1>
                 <input 
                     type="text" 
@@ -58,14 +59,15 @@ function Register(){
                 <button type="submit"
                     className="botao"
                 >Criar</button>
-            </form>
-            <div className="divCadastro">
+                <div className="divCadastro">
                 <h2>Já possui uma conta? </h2>
                 <button 
                     onClick={() => navigate("/auth/login")}
                     className="cadastroLink"
                 > Entrar</button>
             </div>
+            </form>
+            
 
         </div>
     )

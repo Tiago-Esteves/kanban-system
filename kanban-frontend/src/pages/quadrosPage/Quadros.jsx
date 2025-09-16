@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getQuadros } from "../../services/quadroService";
 import { useNavigate } from "react-router-dom"
 import { logout } from "../../services/authService";
+import "./Quadros.css";
 
 export default function Quadros() {
     const [quadros, setQuadros] = useState([]);
@@ -18,10 +19,10 @@ export default function Quadros() {
 
 
     return (
-        <div className="esquemaTeste flex flex-col items-center">
+        <div className="quadros flex flex-col items-center">
             <h1 className="text-5xl text-center p-5 mt-1">Meus Quadros</h1>
 
-            <div className="w-[700px] ">
+            <div className="quadrosContainerDiv">
                 <ul className="quadrosContainer">
                     {quadros.map((q) =>
                         <li

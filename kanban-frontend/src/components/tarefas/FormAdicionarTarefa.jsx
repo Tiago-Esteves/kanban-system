@@ -44,7 +44,8 @@ function FormAdicionarTarefa({
           </option>
         ))}
       </select>
-      <button className="botoes ml-2" type="submit">
+      
+      <button className="ml-2 !w-[200px] max-h-[40px] botoes" type="submit">
         Adicionar
       </button>
     </form>

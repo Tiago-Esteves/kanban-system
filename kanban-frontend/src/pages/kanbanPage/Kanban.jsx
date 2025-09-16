@@ -54,7 +54,13 @@ function Kanban() {
         const dados = await tarefaService.getTarefas();
         const tarefasDoQuadro = dados.filter((t) => t.quadro?.id === quadroId);
         setTarefas(tarefasDoQuadro.sort(
-          (a, b) => new Date(a.dataCriacao) - new Date(b.dataCriacao)
+          // Se 'a' não tem prazo, joga pro final
+          (a, b) => {
+            if (!a.prazo && b.prazo) return 1;
+            if (a.prazo && !b.prazo) return -1;
+            if (!a.prazo && !b.prazo) return 0;
+            return new Date(a.prazo) - new Date(b.prazo);
+          }
         ));
       } catch (erro) {
         console.error("Erro ao carregar tarefas:", erro);
@@ -173,7 +179,7 @@ function Kanban() {
         handleSalvarEdicaoQuadro={handleSalvarEdicaoQuadro}
       />
 
-      <div className="flex gap-5 p-10">
+      <div className="colunasContainer">
         {colunas.map((coluna) => {
           const tarefasDaColuna = tarefas.filter((t) => t.coluna?.id === coluna.id);
           return (

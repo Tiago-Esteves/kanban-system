@@ -2,7 +2,11 @@
 @import "tailwindcss";
 
 body{
+    overflow: hidden; /* Remove rolagem global */
+    width: 100%;
+    height: 100%;
     font-family: 'Poppins', sans-serif;
+    background-color: #0D1117;
 }
 
 button{
@@ -22,11 +26,6 @@ p, input, button, span, a {
     font-family: 'Poppins', sans-serif;
 }
 
-.esquemaTeste{
-    background-color: #0D1117;
-    color: whitesmoke;
-    height: 100vh;
-}
 
 .botoes {
     cursor: pointer;
@@ -43,28 +42,3 @@ p, input, button, span, a {
     transition: background-color 0.5s ease;
 }
 
-.quadrosContainer {
-    display: flex;
-    display: block;
-    justify-content: center; 
-    min-height: 350px;
-    margin-top: 50px;
-    background-color: #21262D;
-}
-
-.quadrosList {
-    cursor: pointer; 
-    color: whitesmoke; 
-    background-color: #21262D;
-    padding: 8px;
-    padding-left: 16px;
-    width: 700px;
-    position: relative;
-    border-bottom: 2px dashed #7f8588;
-}
-
-.quadrosList:hover {
-    background-color: #7f8588;
-    color: #FFF;
-    transition: background-color 0.5s ease;
-}

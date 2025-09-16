@@ -1,0 +1,75 @@
+.quadros{    
+    color: whitesmoke;
+    height: 100vh;
+}
+
+.botoes {
+    cursor: pointer;
+    
+    color: whitesmoke;
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.botoes:hover {
+    background: #395b83;
+    transition: background-color 0.5s ease;
+}
+
+.quadrosContainerDiv {
+    width: 700px; 
+    max-width: 100%; 
+}
+
+.quadrosContainer {
+    display: flex;
+    display: block;
+    justify-content: center; 
+    min-height: 350px;
+    margin-top: 50px;
+    background-color: #21262D;
+}
+
+.quadrosList {
+    cursor: pointer; 
+    color: whitesmoke; 
+    background-color: #21262D;
+    padding: 8px;
+    padding-left: 16px;
+    width: 700px;
+    position: relative;
+    border-bottom: 2px dashed #7f8588;
+}
+
+.quadrosList:hover {
+    background-color: #7f8588;
+    color: #FFF;
+    transition: background-color 0.5s ease;
+}
+
+@media screen {
+    .quadros {
+        height: auto; 
+        padding: 16px; 
+    }
+
+    .botoes {
+        width: 100%; 
+        padding: 12px; 
+        font-size: 16px; 
+    }
+
+    .quadrosContainer {
+        display: block; 
+        margin-top: 20px;  
+        padding: 16px; 
+    }
+
+    .quadrosList {
+        width: 100%; 
+        padding: 12px;  
+        font-size: 14px;
+    }
+}

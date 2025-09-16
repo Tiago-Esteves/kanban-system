@@ -14,6 +14,7 @@
     padding: 10px;
     border-radius: 8px;
     min-height: 500px;
+    max-width: 400px;
     aspect-ratio: 1 / 1.618;
     /*box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
     overflow-y: auto;
@@ -22,4 +23,23 @@
 
 .colunasSection::-webkit-scrollbar{
     display: none;
+}
+
+@media (max-width: 768px) {
+    
+
+    .colunasSection {
+        flex-direction: row;
+        width: 100%; /* Cada coluna ocupa toda a largura */
+        min-height: 100px;
+        aspect-ratio: unset;
+        padding: 10px;
+        align-items: center;
+    }
+
+    .colunasSection h2 {
+        font-size: 10px; /* Ajusta o tamanho do título */
+        text-align: left; /* Alinha o título à esquerda */
+        margin-bottom: 10px;
+    }
 }

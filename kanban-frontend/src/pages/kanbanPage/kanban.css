@@ -74,54 +74,11 @@
     background-color: #395b83;
 }
 
-
-
-.colunas{
+.colunasContainer{
     display: flex;
     gap: 20px;
-    padding: 5px;
-}
-
-.kanbanContainer{
-    width: 500;
-    display: flex;
-    gap: 5px;
-    padding: 10px;
-}
-
-.tarefas {
-    display: flex;    
-    justify-content: space-between;
-    cursor: grab;
-    align-items: center;
-    background-color: #21262D;
-    max-height: 60px;    
-    margin: 10px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-    overflow: hidden;
+    padding: 10px 20px;
     
-}
-
-.tarefas.expandida{    
-    max-height: 600px;
-    
-}
-
-.tarefas .descricao {
-    flex: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-right: 10px;
-}
-
-.tarefas .ladoDireito {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .input-data::-webkit-calendar-picker-indicator {
@@ -136,4 +93,19 @@
     width: 200px;
     margin-right: 40px;
     margin-top: 15px;
+}
+
+@media screen {
+    .colunasContainer{
+        flex-direction: column;
+        gap: 10px;
+        aspect-ratio: unset;
+        min-height: auto;
+    }
+    .titulo{
+        font-size: 30px; 
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
