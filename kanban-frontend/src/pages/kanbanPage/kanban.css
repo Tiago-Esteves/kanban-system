@@ -95,7 +95,7 @@
     margin-top: 15px;
 }
 
-@media screen {
+@media (max-width: 708px) {
     .colunasContainer{
         flex-direction: column;
         gap: 10px;
@@ -103,9 +103,26 @@
         min-height: auto;
     }
     .titulo{
-        font-size: 30px; 
-        margin-bottom: 10px;
+        font-size: 25px; 
+        margin: 10px;
+        
+    }
+
+    .botaoMeusQuadros{
+        width: 120px;
+        font-size: 12px;
         margin-left: 10px;
+        margin-top: 5px;
+    }
+    
+    .BotaoEditarQuadros{
+        width: 120px;
+        font-size: 12px;
         margin-right: 10px;
+        margin-top: 5px;
+        height: 40px;
+    }
+    .kanbanHeader{
+        height: 70px;
     }
 }
