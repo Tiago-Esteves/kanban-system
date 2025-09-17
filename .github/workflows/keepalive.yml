@@ -2,12 +2,27 @@ name: Keep Alive Render
 
 on:
   schedule:
-    - cron: "*/12 * * * *"  # roda a cada 12 minutos
-  workflow_dispatch:        # permite rodar manualmente também
+    - cron: "*/14 * * * *" # roda a cada 14 minutos
+  workflow_dispatch: # permite rodar manualmente também
 
 jobs:
-  ping:
+  keep-alive:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Curl render app
-        run: curl -s https://kanban-backend-cvn2.onrender.com > /dev/null
+      - name: Ping no backend
+        run: |
+          echo "⏱️ Testando acesso em $(date)"
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code} %{time_total}\n" https://kanban-backend-cvn2.onrender.com)
+          STATUS=$(echo $RESPONSE | cut -d' ' -f1)
+          TIME=$(echo $RESPONSE | cut -d' ' -f2)
+
+          echo "Status: $STATUS | Tempo: ${TIME}s"
+
+          if [ "$STATUS" -eq 200 ]; then
+            echo "✅ Backend está ativo e respondeu corretamente."
+          else
+            echo "⚠️ Backend não respondeu como esperado (status $STATUS)."
+          fi
+
+        
