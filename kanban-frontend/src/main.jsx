@@ -7,6 +7,7 @@ import Quadros from './pages/quadrosPage/Quadros.jsx';
 import './index.css';
 import LoginPage from './pages/loginPage/LoginPage.jsx';
 import Register from './pages/register/Register.jsx';
+import LandingPage from './pages/landingPage/LandingPage.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx'; // importando a rota privada
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,15 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path="/auth/login" element={<LoginPage />} />
       <Route path='/auth/register' element={<Register />} />
+      <Route path='/landing' element={<LandingPage />} />
 
-      <Route
-        path="/"
-        element={
-          <PrivateRoute>
-            <App />
-          </PrivateRoute>
-        }
-      />
+      <Route path="/" element={<App />}/>
 
       <Route
         path="/createquadro"

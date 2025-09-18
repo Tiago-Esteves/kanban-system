@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.tiago.kanban.model.entities.Tarefa;
 
 public interface TarefaRepository extends JpaRepository<Tarefa, Integer>{
-	
+
+
+    void deleteAllByQuadroId(Long quadroId);
 }

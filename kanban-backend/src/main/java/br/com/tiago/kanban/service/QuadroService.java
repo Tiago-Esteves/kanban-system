@@ -2,6 +2,8 @@ package br.com.tiago.kanban.service;
 
 import java.util.List;
 
+import br.com.tiago.kanban.model.repositories.TarefaRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,9 @@ public class QuadroService {
 
 	@Autowired
 	private QuadroRepository quadroRepository;
+
+    @Autowired
+    private TarefaRepository tarefaRepository;
 	
 	public Quadro salvar(@Valid Quadro quadro) {
 		return quadroRepository.save(quadro);
@@ -41,8 +46,9 @@ public class QuadroService {
 		
 		return quadroRepository.save(quadroAtual);
 	}
-	
+	@Transactional //Se o tudo der certo sem exceções, a transação é confirmada.
 	public void deletarPorId(int id) {
-		quadroRepository.deleteById(id);
+		tarefaRepository.deleteAllByQuadroId((long) id);
+        quadroRepository.deleteById(id);
 	}
 }

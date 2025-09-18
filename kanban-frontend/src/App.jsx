@@ -6,7 +6,8 @@ function App() {
   
 
   return (
-    <Navigate to="auth/login" replace/>
+    
+    <Navigate to="/landing" replace/>
   );
 }
 

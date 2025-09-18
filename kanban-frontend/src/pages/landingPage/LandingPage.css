@@ -1,0 +1,51 @@
+.landingPage {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    background-color: #0D1117;
+    color: white;
+}
+
+.landingPage h1 {
+    margin-top: 50px;
+    font-size: 48px;
+    margin-bottom: 30px;
+    
+}
+
+.descricao {
+   width: 600px;
+}
+
+.video{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(226, 224, 224, 0.774);
+    width: 600px;
+}
+
+.video:hover{
+    transform-origin: bottom;
+    transform: scale(1.4);
+    transition: transform 0.3s ease;
+}
+
+.botaoLanding{
+    cursor: pointer;
+    color: whitesmoke;
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #6643c0;
+    margin-bottom: 50px;
+}
+
+.botaoLanding:hover {
+    background: #395b83;
+    transition: background-color 0.5s ease;
+}

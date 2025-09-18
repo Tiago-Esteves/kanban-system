@@ -76,4 +76,6 @@ public class AuthController {
 		return ResponseEntity.ok("Usuário registrado com sucesso!");
 	}
 	
+	
+	
 }

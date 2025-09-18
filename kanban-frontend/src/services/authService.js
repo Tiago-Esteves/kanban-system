@@ -51,6 +51,15 @@ export const login = async (usuario) => {
     }
 }
 
+export const forgetPassword = async (email) => {
+    try {
+        const response = await axios.post(`${API_URL}/auth/forgot-password`, { email });
+        return response.data;
+    } catch (err) {
+        throw err.response ? err.response.data : err;
+    }
+}
+
 export const logout = () => {
     localStorage.clear();
 
