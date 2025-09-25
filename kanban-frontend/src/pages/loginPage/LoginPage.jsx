@@ -51,10 +51,10 @@ function LoginPage() {
                     type="submit"
                     className="botao"
                 >Entrar</button>
-                <button 
+                {/* <button 
                     onClick={() => navigate("/auth/forgot-password")}
                     className="cadastroLink"
-                > Esqueci minha senha!</button>
+                > Esqueci minha senha!</button> */}
                 <div className="divCadastro">
                     <h2>Ainda não possui uma conta? </h2>
                     <button
