@@ -1,8 +1,7 @@
-````md
 # Kanban System - Java Spring Boot + React  
+
 🚀 **Acesse a aplicação online**  
-🔗 *Link da demo:* Em breve  
-*(a aplicação será hospedada assim que finalizada)*  
+🔗 *Link:* [kanban-system-tau.vercel.app](https://kanban-system-tau.vercel.app)  
 
 Este projeto é um sistema de gerenciamento de tarefas estilo Kanban, com **backend em Java Spring Boot** e **frontend em React**. Ele simula um quadro de tarefas com colunas como **"A começar"**, **"Em andamento"**, **"Finalizado"** e **"Atrasado"**.  
 
@@ -14,6 +13,7 @@ Este projeto é um sistema de gerenciamento de tarefas estilo Kanban, com **back
 📊 Organização por status: *A começar*, *Em andamento*, *Finalizado*, *Atrasado*  
 🔄 API RESTful para integração com frontend  
 💾 Persistência de dados com JPA + MySQL  
+⚠️ **Faltando:** Implementação do recurso "Esqueci minha senha"  
 
 ### Frontend (em desenvolvimento)  
 🎨 Layout Kanban responsivo com colunas e cartões de tarefas  
@@ -21,6 +21,7 @@ Este projeto é um sistema de gerenciamento de tarefas estilo Kanban, com **back
 📌 Organização visual das tarefas usando **React** e **Tailwind CSS**  
 🖱️ Funcionalidade de **Drag & Drop** para reorganizar tarefas  
 🌙 Alteração de **temas (claro/escuro)** para melhor experiência do usuário  
+📱 **Faltando:** Versão mobile totalmente funcional  
 
 ---
 
@@ -50,8 +51,6 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 - [MySQL](https://dev.mysql.com/downloads/)  
 - [Node.js + npm](https://nodejs.org/)  
 
----
-
 ### 🔹 Backend  
 ```bash
 # Clonar o repositório
@@ -63,15 +62,11 @@ mvn install
 
 # Rodar o projeto
 mvn spring-boot:run
-````
 
-O backend estará rodando em: **[http://localhost:8080](http://localhost:8080)**
 
----
+O backend estará rodando em: http://localhost:8080
 
-### 🔹 Frontend
-
-```bash
+🔹 Frontend
 # Entrar na pasta do frontend
 cd frontend
 
@@ -80,24 +75,25 @@ npm install
 
 # Rodar o projeto
 npm run dev
-```
 
-O frontend estará rodando em: **[http://localhost:5173](http://localhost:5173)**
 
----
+O frontend estará rodando em: http://localhost:5173
 
-## 📌 Observações
+📌 Observações
 
-* Configure o **application.properties** do Spring Boot para apontar para seu banco MySQL local antes de rodar o backend.
-* As tabelas serão criadas automaticamente pelo JPA/Hibernate.
-* O frontend ainda está em desenvolvimento e será integrado ao backend nas próximas versões.
+Configure o application.properties do Spring Boot para apontar para seu banco MySQL local antes de rodar o backend.
 
----
+As tabelas serão criadas automaticamente pelo JPA/Hibernate.
 
-## 🚀 Roadmap (próximas melhorias)
+O frontend ainda está em desenvolvimento e será integrado ao backend nas próximas versões.
 
-* 🔐 Sistema de autenticação com usuários e login
-* ☁️ Deploy em nuvem (Render, Railway ou AWS)
+🚀 Roadmap / Próximas melhorias
 
-```
+🔐 Implementar sistema de autenticação completo com "Esqueci minha senha"
 
+📱 Tornar a versão mobile totalmente funcional
+
+☁️ Migrar hospedagem do backend e do banco de dados para AWS, garantindo maior estabilidade e performance, já que atualmente o Railway apresenta limitações
+
+🌐 Deploy contínuo do frontend em Vercel (já disponível em kanban-system-tau.vercel.app
+)
